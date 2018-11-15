@@ -682,7 +682,7 @@
         <group>'</group>
         <length>11</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>city</name>
@@ -693,7 +693,7 @@
         <group>'</group>
         <length>14</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>country_region</name>
@@ -704,7 +704,7 @@
         <group>'</group>
         <length>3</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>state_province</name>
@@ -715,7 +715,7 @@
         <group>'</group>
         <length>2</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
     <cluster_schema/>
@@ -760,8 +760,8 @@
       <return>
         <name>KUNDE_ID_DIM</name>
         <rename/>
-        <creation_method>autoinc</creation_method>
-        <use_autoinc>Y</use_autoinc>
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
@@ -877,8 +877,8 @@
       <return>
         <name>BEZ_ID_DIM</name>
         <rename/>
-        <creation_method>autoinc</creation_method>
-        <use_autoinc>Y</use_autoinc>
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
@@ -941,8 +941,8 @@
       <return>
         <name>REGION_ID_DIM</name>
         <rename/>
-        <creation_method>autoinc</creation_method>
-        <use_autoinc>Y</use_autoinc>
+        <creation_method>tablemax</creation_method>
+        <use_autoinc>N</use_autoinc>
         <version>version</version>
       </return>
     </fields>
