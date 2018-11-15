@@ -616,7 +616,7 @@
         <group>'</group>
         <length>11</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
     <cluster_schema/>
@@ -955,7 +955,7 @@
         <group>'</group>
         <length>20</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>last_name</name>
@@ -966,7 +966,7 @@
         <group>'</group>
         <length>20</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>first_name</name>
@@ -977,7 +977,7 @@
         <group>'</group>
         <length>15</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>email_address</name>
@@ -988,7 +988,7 @@
         <group>'</group>
         <length>40</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>job_title</name>
@@ -999,7 +999,7 @@
         <group>'</group>
         <length>25</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>business_phone</name>
@@ -1010,7 +1010,7 @@
         <group>'</group>
         <length>15</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>home_phone</name>
@@ -1021,7 +1021,7 @@
         <group>'</group>
         <length>15</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>mobile_phone</name>
@@ -1032,7 +1032,7 @@
         <group>'</group>
         <length>15</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>fax_number</name>
@@ -1043,7 +1043,7 @@
         <group>'</group>
         <length>13</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>address</name>
@@ -1054,7 +1054,7 @@
         <group>'</group>
         <length>15</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>city</name>
@@ -1065,7 +1065,7 @@
         <group>'</group>
         <length>14</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>state_province</name>
@@ -1076,7 +1076,7 @@
         <group>'</group>
         <length>2</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>zip_postal_code</name>
@@ -1098,7 +1098,7 @@
         <group>'</group>
         <length>3</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>web_page</name>
@@ -1109,7 +1109,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>notes</name>
@@ -1120,7 +1120,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>attachments</name>
@@ -1181,7 +1181,7 @@
         <group>'</group>
         <length>3</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>id</name>
@@ -1203,7 +1203,7 @@
         <group>'</group>
         <length>9</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>product_name</name>
@@ -1214,7 +1214,7 @@
         <group>'</group>
         <length>40</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>description</name>
@@ -1225,7 +1225,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>standard_cost</name>
@@ -1280,7 +1280,7 @@
         <group>'</group>
         <length>20</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>discontinued</name>
@@ -1302,7 +1302,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>category</name>
@@ -1313,7 +1313,7 @@
         <group>'</group>
         <length>25</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>attachments</name>
@@ -1385,7 +1385,7 @@
         <group>'</group>
         <length>25</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>state_province</name>
@@ -1396,7 +1396,7 @@
         <group>'</group>
         <length>2</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>country_region</name>
@@ -1407,7 +1407,7 @@
         <group>'</group>
         <length>15</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
     <cluster_schema/>
@@ -1561,8 +1561,8 @@
       <return>
         <name>KUNDE_ID_DIM</name>
         <rename/>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
+        <creation_method>autoinc</creation_method>
+        <use_autoinc>Y</use_autoinc>
         <version>version</version>
       </return>
     </fields>
