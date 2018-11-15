@@ -650,24 +650,19 @@
     <update>Y</update>
     <fields>
       <key>
-        <name>id</name>
-        <lookup>BEZ_ID</lookup>
+        <name>payment_type</name>
+        <lookup>PAYMENT_TYPE</lookup>
       </key>
       <date>
         <name/>
         <from>date_from</from>
         <to>date_to</to>
       </date>
-      <field>
-        <name>payment_type</name>
-        <lookup>PAYMENT_TYPE</lookup>
-        <update>Insert</update>
-      </field>
       <return>
         <name>BEZ_ID_DIM</name>
         <rename/>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
+        <creation_method>autoinc</creation_method>
+        <use_autoinc>Y</use_autoinc>
         <version>version</version>
       </return>
     </fields>
@@ -845,8 +840,8 @@
       <return>
         <name>ZEIT_ID_DIM</name>
         <rename/>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
+        <creation_method>autoinc</creation_method>
+        <use_autoinc>Y</use_autoinc>
         <version>version</version>
       </return>
     </fields>
@@ -934,7 +929,7 @@
     <enclosure>"</enclosure>
     <header>Y</header>
     <buffer_size>50000</buffer_size>
-    <lazy_conversion>N</lazy_conversion>
+    <lazy_conversion>Y</lazy_conversion>
     <add_filename_result>N</add_filename_result>
     <parallel>N</parallel>
     <newline_possible>N</newline_possible>
@@ -1446,34 +1441,27 @@
     <update>Y</update>
     <fields>
       <key>
-        <name>id</name>
-        <lookup>REGION_ID</lookup>
+        <name>city</name>
+        <lookup>CITY</lookup>
+      </key>
+      <key>
+        <name>state_province</name>
+        <lookup>STATE_PROVINCE</lookup>
+      </key>
+      <key>
+        <name>country_region</name>
+        <lookup>COUNTRY_REGION</lookup>
       </key>
       <date>
         <name/>
         <from>date_from</from>
         <to>date_to</to>
       </date>
-      <field>
-        <name>city</name>
-        <lookup>CITY</lookup>
-        <update>Insert</update>
-      </field>
-      <field>
-        <name>state_province</name>
-        <lookup>STATE_PROVINCE</lookup>
-        <update>Insert</update>
-      </field>
-      <field>
-        <name>country_region</name>
-        <lookup>COUNTRY_REGION</lookup>
-        <update>Insert</update>
-      </field>
       <return>
         <name>REGION_ID_DIM</name>
         <rename/>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
+        <creation_method>autoinc</creation_method>
+        <use_autoinc>Y</use_autoinc>
         <version>version</version>
       </return>
     </fields>
@@ -1644,8 +1632,8 @@
       <return>
         <name>PRODUKT_ID_DIM</name>
         <rename/>
-        <creation_method>tablemax</creation_method>
-        <use_autoinc>N</use_autoinc>
+        <creation_method>autoinc</creation_method>
+        <use_autoinc>Y</use_autoinc>
         <version>version</version>
       </return>
     </fields>
