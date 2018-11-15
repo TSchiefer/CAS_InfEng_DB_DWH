@@ -1364,7 +1364,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>purchase_order_id</name>
@@ -1375,7 +1375,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>inventory_id</name>
@@ -1386,7 +1386,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
     </fields>
     <cluster_schema/>
@@ -1695,7 +1695,7 @@
         <group>'</group>
         <length>3</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>id</name>
@@ -1717,7 +1717,7 @@
         <group>'</group>
         <length>9</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>product_name</name>
@@ -1728,7 +1728,7 @@
         <group>'</group>
         <length>40</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>description</name>
@@ -1739,7 +1739,7 @@
         <group>'</group>
         <length>4</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>standard_cost</name>
@@ -1794,7 +1794,7 @@
         <group>'</group>
         <length>20</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
+        <trim_type>both</trim_type>
       </field>
       <field>
         <name>discontinued</name>
