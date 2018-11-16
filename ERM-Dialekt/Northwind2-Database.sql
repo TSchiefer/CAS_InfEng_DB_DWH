@@ -1,10 +1,12 @@
--- SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
--- SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
--- SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
-
+--								16.11.2018
+-- Database Northwind2
+--
+-- Script creates a new database.
+--
 DROP SCHEMA IF EXISTS Northwind2;
 CREATE SCHEMA IF NOT EXISTS Northwind2 DEFAULT CHARACTER SET latin1;
 USE Northwind2;
+
 
 -- -----------------------------------------------------
 -- Table business_partners
@@ -58,7 +60,7 @@ CREATE TABLE IF NOT EXISTS employees (
 -- -----------------------------------------------------
 -- Table privileges
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS privileges (
+CREATE TABLE IF NOT EXISTS privilege_values (
   privilege_id INT(11) NOT NULL AUTO_INCREMENT,
   privilege_name VARCHAR(50) NULL DEFAULT NULL,
   PRIMARY KEY (privilege_id));
@@ -73,7 +75,6 @@ CREATE TABLE IF NOT EXISTS employee_privileges (
   PRIMARY KEY (employee_id, privilege_id),
   INDEX employee_id (employee_id ASC),
   INDEX privilege_id (privilege_id ASC),
-  INDEX privilege_id_2 (privilege_id ASC),
   CONSTRAINT fk_employee_privileges_employees1
     FOREIGN KEY (employee_id)
     REFERENCES employees(partner_id)
@@ -81,7 +82,7 @@ CREATE TABLE IF NOT EXISTS employee_privileges (
     ON UPDATE NO ACTION,
   CONSTRAINT fk_employee_privileges_privileges1
     FOREIGN KEY (privilege_id)
-    REFERENCES privileges(privilege_id)
+    REFERENCES privilege_values(privilege_id)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -125,86 +126,81 @@ CREATE TABLE IF NOT EXISTS orders_status (
 -- -----------------------------------------------------
 -- Table orders
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS orders (
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `employee_id` INT(11) NULL DEFAULT NULL,
---   `customer_id` INT(11) NULL DEFAULT NULL,
---   `order_date` DATETIME NULL DEFAULT NULL,
---   `shipped_date` DATETIME NULL DEFAULT NULL,
---   `shipper_id` INT(11) NULL DEFAULT NULL,
---   `ship_name` VARCHAR(50) NULL DEFAULT NULL,
---   `ship_address` LONGTEXT NULL DEFAULT NULL,
---   `ship_city` VARCHAR(50) NULL DEFAULT NULL,
---   `ship_state_province` VARCHAR(50) NULL DEFAULT NULL,
---   `ship_zip_postal_code` VARCHAR(50) NULL DEFAULT NULL,
---   `ship_country_region` VARCHAR(50) NULL DEFAULT NULL,
---   `shipping_fee` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `taxes` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `payment_type` VARCHAR(50) NULL DEFAULT NULL,
---   `paid_date` DATETIME NULL DEFAULT NULL,
---   `notes` LONGTEXT NULL DEFAULT NULL,
---   `tax_rate` DOUBLE NULL DEFAULT '0',
---   `tax_status_id` TINYINT(4) NULL DEFAULT NULL,
---   `status_id` TINYINT(4) NULL DEFAULT '0',
---   PRIMARY KEY (`id`),
---   INDEX `customer_id` (`customer_id` ASC),
---   INDEX `customer_id_2` (`customer_id` ASC),
---   INDEX `employee_id` (`employee_id` ASC),
---   INDEX `employee_id_2` (`employee_id` ASC),
---   INDEX `id` (`id` ASC),
---   INDEX `id_2` (`id` ASC),
---   INDEX `shipper_id` (`shipper_id` ASC),
---   INDEX `shipper_id_2` (`shipper_id` ASC),
---   INDEX `id_3` (`id` ASC),
---   INDEX `tax_status` (`tax_status_id` ASC),
---   INDEX `ship_zip_postal_code` (`ship_zip_postal_code` ASC),
---   CONSTRAINT `fk_orders_customers`
---     FOREIGN KEY (`customer_id`)
---     REFERENCES `northwind`.`customers` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_orders_employees1`
---     FOREIGN KEY (`employee_id`)
---     REFERENCES `northwind`.`employees` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_orders_shippers1`
---     FOREIGN KEY (`shipper_id`)
---     REFERENCES `northwind`.`shippers` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_orders_orders_tax_status1`
---     FOREIGN KEY (`tax_status_id`)
---     REFERENCES `northwind`.`orders_tax_status` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_orders_orders_status1`
---     FOREIGN KEY (`status_id`)
---     REFERENCES `northwind`.`orders_status` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION);
+ CREATE TABLE IF NOT EXISTS orders (
+  order_id INT(11) NOT NULL AUTO_INCREMENT,
+  employee_id INT(11) NULL DEFAULT NULL,
+  customer_id INT(11) NULL DEFAULT NULL,
+  order_date DATETIME NULL DEFAULT NULL,
+  shipped_date DATETIME NULL DEFAULT NULL,
+  shipper_id INT(11) NULL DEFAULT NULL,
+  ship_name VARCHAR(50) NULL DEFAULT NULL,
+  ship_address LONGTEXT NULL DEFAULT NULL,
+  ship_city VARCHAR(50) NULL DEFAULT NULL,
+  ship_state_province VARCHAR(50) NULL DEFAULT NULL,
+  ship_zip_postal_code VARCHAR(50) NULL DEFAULT NULL,
+  ship_country_region VARCHAR(50) NULL DEFAULT NULL,
+  shipping_fee DECIMAL(19,4) NULL DEFAULT '0.0000',
+  taxes DECIMAL(19,4) NULL DEFAULT '0.0000',
+  payment_type VARCHAR(50) NULL DEFAULT NULL,
+  paid_date DATETIME NULL DEFAULT NULL,
+  notes LONGTEXT NULL DEFAULT NULL,
+  tax_rate DOUBLE NULL DEFAULT '0',
+  order_tax_status_id TINYINT(4) NULL DEFAULT NULL,
+  order_status_id TINYINT(4) NULL DEFAULT '0',
+  PRIMARY KEY (order_id),
+  INDEX customer_id (customer_id ASC),
+  INDEX employee_id (employee_id ASC),
+  INDEX order_id (order_id ASC),
+  INDEX shipper_id (shipper_id ASC),
+  INDEX order_tax_status (order_tax_status_id ASC),
+  INDEX ship_zip_postal_code (ship_zip_postal_code ASC),
+  CONSTRAINT fk_orders_customers
+    FOREIGN KEY (customer_id)
+    REFERENCES customers(partner_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_orders_employees1
+    FOREIGN KEY (employee_id)
+    REFERENCES employees(partner_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_orders_shippers1
+    FOREIGN KEY (shipper_id)
+    REFERENCES shippers(partner_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_orders_orders_tax_status1
+    FOREIGN KEY (order_tax_status_id)
+    REFERENCES orders_tax_status(order_tax_status_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_orders_orders_status1
+    FOREIGN KEY (order_status_id)
+    REFERENCES orders_status(order_status_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
 -- Table products
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS products (
---   `supplier_ids` LONGTEXT NULL DEFAULT NULL,
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `product_code` VARCHAR(25) NULL DEFAULT NULL,
---   `product_name` VARCHAR(50) NULL DEFAULT NULL,
---   `description` LONGTEXT NULL DEFAULT NULL,
---   `standard_cost` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `list_price` DECIMAL(19,4) NOT NULL DEFAULT '0.0000',
---   `reorder_level` INT(11) NULL DEFAULT NULL,
---   `target_level` INT(11) NULL DEFAULT NULL,
---   `quantity_per_unit` VARCHAR(50) NULL DEFAULT NULL,
---   `discontinued` TINYINT(1) NOT NULL DEFAULT '0',
---   `minimum_reorder_quantity` INT(11) NULL DEFAULT NULL,
---   `category` VARCHAR(50) NULL DEFAULT NULL,
---   `attachments` LONGBLOB NULL DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   INDEX `product_code` (`product_code` ASC));
+CREATE TABLE IF NOT EXISTS products (
+  supplier_ids LONGTEXT NULL DEFAULT NULL,
+  product_id INT(11) NOT NULL AUTO_INCREMENT,
+  product_code VARCHAR(25) NULL DEFAULT NULL,
+  product_name VARCHAR(50) NULL DEFAULT NULL,
+  description LONGTEXT NULL DEFAULT NULL,
+  standard_cost DECIMAL(19,4) NULL DEFAULT '0.0000',
+  list_price DECIMAL(19,4) NOT NULL DEFAULT '0.0000',
+  reorder_level INT(11) NULL DEFAULT NULL,
+  target_level INT(11) NULL DEFAULT NULL,
+  quantity_per_unit VARCHAR(50) NULL DEFAULT NULL,
+  discontinued TINYINT(1) NOT NULL DEFAULT '0',
+  minimum_reorder_quantity INT(11) NULL DEFAULT NULL,
+  category VARCHAR(50) NULL DEFAULT NULL,
+  attachments LONGBLOB NULL DEFAULT NULL,
+  PRIMARY KEY (product_id),
+  INDEX product_code (product_code ASC));
 
 
 -- -----------------------------------------------------
@@ -228,110 +224,104 @@ CREATE TABLE IF NOT EXISTS suppliers (
 -- -----------------------------------------------------
 -- Table purchase_orders
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS purchase_orders (
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `supplier_id` INT(11) NULL DEFAULT NULL,
---   `created_by` INT(11) NULL DEFAULT NULL,
---   `submitted_date` DATETIME NULL DEFAULT NULL,
---   `creation_date` DATETIME NULL DEFAULT NULL,
---   `status_id` INT(11) NULL DEFAULT '0',
---   `expected_date` DATETIME NULL DEFAULT NULL,
---   `shipping_fee` DECIMAL(19,4) NOT NULL DEFAULT '0.0000',
---   `taxes` DECIMAL(19,4) NOT NULL DEFAULT '0.0000',
---   `payment_date` DATETIME NULL DEFAULT NULL,
---   `payment_amount` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `payment_method` VARCHAR(50) NULL DEFAULT NULL,
---   `notes` LONGTEXT NULL DEFAULT NULL,
---   `approved_by` INT(11) NULL DEFAULT NULL,
---   `approved_date` DATETIME NULL DEFAULT NULL,
---   `submitted_by` INT(11) NULL DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   UNIQUE INDEX `id` (`id` ASC),
---   INDEX `created_by` (`created_by` ASC),
---   INDEX `status_id` (`status_id` ASC),
---   INDEX `id_2` (`id` ASC),
---   INDEX `supplier_id` (`supplier_id` ASC),
---   INDEX `supplier_id_2` (`supplier_id` ASC),
---   CONSTRAINT `fk_purchase_orders_employees1`
---     FOREIGN KEY (`created_by`)
---     REFERENCES `northwind`.`employees` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_purchase_orders_purchase_order_status1`
---     FOREIGN KEY (`status_id`)
---     REFERENCES `northwind`.`purchase_order_status` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_purchase_orders_suppliers1`
---     FOREIGN KEY (`supplier_id`)
---     REFERENCES `northwind`.`suppliers` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION);
+CREATE TABLE IF NOT EXISTS purchase_orders (
+  purchase_order_id INT(11) NOT NULL AUTO_INCREMENT,
+  supplier_id INT(11) NULL DEFAULT NULL,
+  created_by INT(11) NULL DEFAULT NULL,  -- employees
+  submitted_date DATETIME NULL DEFAULT NULL,
+  creation_date DATETIME NULL DEFAULT NULL,
+  status_id INT(11) NULL DEFAULT '0',
+  expected_date DATETIME NULL DEFAULT NULL,
+  shipping_fee DECIMAL(19,4) NOT NULL DEFAULT '0.0000',
+  taxes DECIMAL(19,4) NOT NULL DEFAULT '0.0000',
+  payment_date DATETIME NULL DEFAULT NULL,
+  payment_amount DECIMAL(19,4) NULL DEFAULT '0.0000',
+  payment_method VARCHAR(50) NULL DEFAULT NULL,
+  notes LONGTEXT NULL DEFAULT NULL,
+  approved_by INT(11) NULL DEFAULT NULL,
+  approved_date DATETIME NULL DEFAULT NULL,
+  submitted_by INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (purchase_order_id),
+  UNIQUE INDEX purchase_order_id (purchase_order_id ASC),
+  INDEX created_by (created_by ASC),
+  INDEX status_id (status_id ASC),
+  INDEX supplier_id (supplier_id ASC),
+  CONSTRAINT fk_purchase_orders_employees1
+    FOREIGN KEY (created_by)
+    REFERENCES employees(partner_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_purchase_orders_purchase_order_status1
+    FOREIGN KEY (status_id)
+    REFERENCES purchase_order_status(purchase_order_status_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_purchase_orders_suppliers1
+    FOREIGN KEY (supplier_id)
+    REFERENCES suppliers(partner_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
 -- Table inventory_transactions
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS inventory_transactions (
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `transaction_type` TINYINT(4) NOT NULL,
---   `transaction_created_date` DATETIME NULL DEFAULT NULL,
---   `transaction_modified_date` DATETIME NULL DEFAULT NULL,
---   `product_id` INT(11) NOT NULL,
---   `quantity` INT(11) NOT NULL,
---   `purchase_order_id` INT(11) NULL DEFAULT NULL,
---   `customer_order_id` INT(11) NULL DEFAULT NULL,
---   `comments` VARCHAR(255) NULL DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   INDEX `customer_order_id` (`customer_order_id` ASC),
---   INDEX `customer_order_id_2` (`customer_order_id` ASC),
---   INDEX `product_id` (`product_id` ASC),
---   INDEX `product_id_2` (`product_id` ASC),
---   INDEX `purchase_order_id` (`purchase_order_id` ASC),
---   INDEX `purchase_order_id_2` (`purchase_order_id` ASC),
---   INDEX `transaction_type` (`transaction_type` ASC),
---   CONSTRAINT `fk_inventory_transactions_orders1`
---     FOREIGN KEY (`customer_order_id`)
---     REFERENCES `northwind`.`orders` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_inventory_transactions_products1`
---     FOREIGN KEY (`product_id`)
---     REFERENCES `northwind`.`products` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_inventory_transactions_purchase_orders1`
---     FOREIGN KEY (`purchase_order_id`)
---     REFERENCES `northwind`.`purchase_orders` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_inventory_transactions_inventory_transaction_types1`
---     FOREIGN KEY (`transaction_type`)
---     REFERENCES `northwind`.`inventory_transaction_types` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION);
+CREATE TABLE IF NOT EXISTS inventory_transactions (
+  inventory_transaction_id INT(11) NOT NULL AUTO_INCREMENT,
+  inventory_transaction_type_id TINYINT(4) NOT NULL,
+  transaction_created_date DATETIME NULL DEFAULT NULL,
+  transaction_modified_date DATETIME NULL DEFAULT NULL,
+  product_id INT(11) NOT NULL,
+  quantity INT(11) NOT NULL,
+  purchase_order_id INT(11) NULL DEFAULT NULL,
+  customer_order_id INT(11) NULL DEFAULT NULL,
+  comments VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (inventory_transaction_id),
+  INDEX customer_order_id (customer_order_id ASC),
+  INDEX product_id (product_id ASC),
+  INDEX purchase_order_id (purchase_order_id ASC),
+  INDEX inventory_transaction_type_id  (inventory_transaction_type_id ASC),
+  CONSTRAINT fk_inventory_transactions_orders1
+    FOREIGN KEY (customer_order_id)
+    REFERENCES orders(order_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_inventory_transactions_products1
+    FOREIGN KEY (product_id)
+    REFERENCES products(product_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_inventory_transactions_purchase_orders1
+    FOREIGN KEY (purchase_order_id)
+    REFERENCES purchase_orders(purchase_order_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_inventory_transactions_inventory_transaction_types1
+    FOREIGN KEY (inventory_transaction_type_id)
+    REFERENCES inventory_transaction_types(inventory_transaction_type_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
 -- Table invoices
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS invoices (
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `order_id` INT(11) NULL DEFAULT NULL,
---   `invoice_date` DATETIME NULL DEFAULT NULL,
---   `due_date` DATETIME NULL DEFAULT NULL,
---   `tax` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `shipping` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `amount_due` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   PRIMARY KEY (`id`),
---   INDEX `id` (`id` ASC),
---   INDEX `id_2` (`id` ASC),
---   INDEX `fk_invoices_orders1_idx` (`order_id` ASC),
---   CONSTRAINT `fk_invoices_orders1`
---     FOREIGN KEY (`order_id`)
---     REFERENCES `northwind`.`orders` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION);
+CREATE TABLE IF NOT EXISTS invoices (
+  invoice_id INT(11) NOT NULL AUTO_INCREMENT,
+  order_id INT(11) NULL DEFAULT NULL,
+  invoice_date DATETIME NULL DEFAULT NULL,
+  due_date DATETIME NULL DEFAULT NULL,
+  tax DECIMAL(19,4) NULL DEFAULT '0.0000',
+  shipping DECIMAL(19,4) NULL DEFAULT '0.0000',
+  amount_due DECIMAL(19,4) NULL DEFAULT '0.0000',
+  PRIMARY KEY (invoice_id),
+  INDEX invoice_id (invoice_id ASC),
+  INDEX fk_invoices_orders1_idx (order_id ASC),
+  CONSTRAINT fk_invoices_orders1
+    FOREIGN KEY (order_id)
+    REFERENCES orders(order_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -346,81 +336,73 @@ CREATE TABLE IF NOT EXISTS order_details_status (
 -- -----------------------------------------------------
 -- Table order_details
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS order_details (
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `order_id` INT(11) NOT NULL,
---   `product_id` INT(11) NULL DEFAULT NULL,
---   `quantity` DECIMAL(18,4) NOT NULL DEFAULT '0.0000',
---   `unit_price` DECIMAL(19,4) NULL DEFAULT '0.0000',
---   `discount` DOUBLE NOT NULL DEFAULT '0',
---   `status_id` INT(11) NULL DEFAULT NULL,
---   `date_allocated` DATETIME NULL DEFAULT NULL,
---   `purchase_order_id` INT(11) NULL DEFAULT NULL,
---   `inventory_id` INT(11) NULL DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   INDEX `id` (`id` ASC),
---   INDEX `inventory_id` (`inventory_id` ASC),
---   INDEX `id_2` (`id` ASC),
---   INDEX `id_3` (`id` ASC),
---   INDEX `id_4` (`id` ASC),
---   INDEX `product_id` (`product_id` ASC),
---   INDEX `product_id_2` (`product_id` ASC),
---   INDEX `purchase_order_id` (`purchase_order_id` ASC),
---   INDEX `id_5` (`id` ASC),
---   INDEX `fk_order_details_orders1_idx` (`order_id` ASC),
---   INDEX `fk_order_details_order_details_status1_idx` (`status_id` ASC),
---   CONSTRAINT `fk_order_details_orders1`
---     FOREIGN KEY (`order_id`)
---     REFERENCES `northwind`.`orders` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_order_details_products1`
---     FOREIGN KEY (`product_id`)
---     REFERENCES `northwind`.`products` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_order_details_order_details_status1`
---     FOREIGN KEY (`status_id`)
---     REFERENCES `northwind`.`order_details_status` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION);
+CREATE TABLE IF NOT EXISTS order_details (
+  order_details_id INT(11) NOT NULL AUTO_INCREMENT,
+  order_id INT(11) NOT NULL,
+  product_id INT(11) NULL DEFAULT NULL,
+  quantity DECIMAL(18,4) NOT NULL DEFAULT '0.0000',
+  unit_price DECIMAL(19,4) NULL DEFAULT '0.0000',
+  discount DOUBLE NOT NULL DEFAULT '0',
+  status_id INT(11) NULL DEFAULT NULL,
+  date_allocated DATETIME NULL DEFAULT NULL,
+  purchase_order_id INT(11) NULL DEFAULT NULL,
+  inventory_id INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (order_details_id),
+  INDEX order_details_id (order_details_id ASC),
+  INDEX inventory_id (inventory_id ASC),
+  INDEX product_id (product_id ASC),
+  INDEX purchase_order_id (purchase_order_id ASC),
+  INDEX fk_order_details_orders1_idx (order_id ASC),
+  INDEX fk_order_details_order_details_status1_idx (status_id ASC),
+  CONSTRAINT fk_order_details_orders1
+    FOREIGN KEY (order_id)
+    REFERENCES orders(order_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_order_details_products1
+    FOREIGN KEY (product_id)
+    REFERENCES products(product_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_order_details_order_details_status1
+    FOREIGN KEY (status_id)
+    REFERENCES order_details_status(order_details_status_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
 -- Table purchase_order_details
 -- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS purchase_order_details (
---   `id` INT(11) NOT NULL AUTO_INCREMENT,
---   `purchase_order_id` INT(11) NOT NULL,
---   `product_id` INT(11) NULL DEFAULT NULL,
---   `quantity` DECIMAL(18,4) NOT NULL,
---   `unit_cost` DECIMAL(19,4) NOT NULL,
---   `date_received` DATETIME NULL DEFAULT NULL,
---   `posted_to_inventory` TINYINT(1) NOT NULL DEFAULT '0',
---   `inventory_id` INT(11) NULL DEFAULT NULL,
---   PRIMARY KEY (`id`),
---   INDEX `id` (`id` ASC),
---   INDEX `inventory_id` (`inventory_id` ASC),
---   INDEX `inventory_id_2` (`inventory_id` ASC),
---   INDEX `purchase_order_id` (`purchase_order_id` ASC),
---   INDEX `product_id` (`product_id` ASC),
---   INDEX `product_id_2` (`product_id` ASC),
---   INDEX `purchase_order_id_2` (`purchase_order_id` ASC),
---   CONSTRAINT `fk_purchase_order_details_inventory_transactions1`
---     FOREIGN KEY (`inventory_id`)
---     REFERENCES `northwind`.`inventory_transactions` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_purchase_order_details_products1`
---     FOREIGN KEY (`product_id`)
---     REFERENCES `northwind`.`products` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION,
---   CONSTRAINT `fk_purchase_order_details_purchase_orders1`
---     FOREIGN KEY (`purchase_order_id`)
---     REFERENCES `northwind`.`purchase_orders` (`id`)
---     ON DELETE NO ACTION
---     ON UPDATE NO ACTION);
+CREATE TABLE IF NOT EXISTS purchase_order_details (
+  purchase_order_detail_id INT(11) NOT NULL AUTO_INCREMENT,
+  purchase_order_id INT(11) NOT NULL,
+  product_id INT(11) NULL DEFAULT NULL,
+  quantity DECIMAL(18,4) NOT NULL,
+  unit_cost DECIMAL(19,4) NOT NULL,
+  date_received DATETIME NULL DEFAULT NULL,
+  posted_to_inventory TINYINT(1) NOT NULL DEFAULT '0',
+  inventory_id INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (purchase_order_detail_id),
+  INDEX purchase_order_detail_id (purchase_order_detail_id ASC),
+  INDEX inventory_id (inventory_id ASC),
+  INDEX purchase_order_id (purchase_order_id ASC),
+  INDEX product_id (product_id ASC),
+  CONSTRAINT fk_purchase_order_details_inventory_transactions1
+    FOREIGN KEY (inventory_id)
+    REFERENCES inventory_transactions(inventory_transaction_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_purchase_order_details_products1
+    FOREIGN KEY (product_id)
+    REFERENCES products(product_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT fk_purchase_order_details_purchase_orders1
+    FOREIGN KEY (purchase_order_id)
+    REFERENCES purchase_orders(purchase_order_id)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -431,7 +413,7 @@ CREATE TABLE IF NOT EXISTS sales_reports (
   display VARCHAR(50) NULL DEFAULT NULL,
   title VARCHAR(50) NULL DEFAULT NULL,
   filter_row_source LONGTEXT NULL DEFAULT NULL,
-  default TINYINT(1) NOT NULL DEFAULT '0',
+  default_value TINYINT(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (group_by));
 
 
@@ -443,7 +425,3 @@ CREATE TABLE IF NOT EXISTS strings (
   string_data VARCHAR(255) NULL DEFAULT NULL,
   PRIMARY KEY (string_id));
 
-
--- SET SQL_MODE=@OLD_SQL_MODE;
--- SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
--- SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
