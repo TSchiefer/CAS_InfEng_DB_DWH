@@ -542,6 +542,18 @@
         <name2 />
       </key>
       <key>
+        <name>last_name</name>
+        <field>last_name</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>first_name</name>
+        <field>first_name</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
         <name>city</name>
         <field>city</field>
         <condition>=</condition>
@@ -567,6 +579,16 @@
       <value>
         <name>company</name>
         <rename>company</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>last_name</name>
+        <rename>last_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>first_name</name>
+        <rename>first_name</rename>
         <update>Y</update>
       </value>
       <value>
@@ -730,6 +752,12 @@
         <condition>=</condition>
         <name2 />
       </key>
+      <key>
+        <name>payment_type</name>
+        <field>payment_type</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
       <value>
         <name>id</name>
         <rename>id</rename>
@@ -743,6 +771,11 @@
       <value>
         <name>order_date</name>
         <rename>order_date</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>payment_type</name>
+        <rename>payment_type</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -783,8 +816,20 @@
         <name2 />
       </key>
       <key>
+        <name>product_code</name>
+        <field>product_code</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
         <name>product_name</name>
         <field>product_name</field>
+        <condition>=</condition>
+        <name2 />
+      </key>
+      <key>
+        <name>standard_cost</name>
+        <field>standard_cost</field>
         <condition>=</condition>
         <name2 />
       </key>
@@ -794,8 +839,18 @@
         <update>Y</update>
       </value>
       <value>
+        <name>product_code</name>
+        <rename>product_code</rename>
+        <update>Y</update>
+      </value>
+      <value>
         <name>product_name</name>
         <rename>product_name</rename>
+        <update>Y</update>
+      </value>
+      <value>
+        <name>standard_cost</name>
+        <rename>standard_cost</rename>
         <update>Y</update>
       </value>
     </lookup>
@@ -856,6 +911,28 @@
         <decimal>.</decimal>
         <group>,</group>
         <length>10</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>last_name</name>
+        <type>String</type>
+        <format />
+        <currency>CHF</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>16</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>first_name</name>
+        <type>String</type>
+        <format />
+        <currency>CHF</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>13</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -1069,6 +1146,17 @@
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
+      <field>
+        <name>payment_type</name>
+        <type>String</type>
+        <format />
+        <currency>CHF</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>11</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1120,6 +1208,17 @@
         <trim_type>none</trim_type>
       </field>
       <field>
+        <name>product_code</name>
+        <type>String</type>
+        <format />
+        <currency>CHF</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>9</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
         <name>product_name</name>
         <type>String</type>
         <format />
@@ -1128,6 +1227,17 @@
         <group>,</group>
         <length>40</length>
         <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>standard_cost</name>
+        <type>Number</type>
+        <format>#.#</format>
+        <currency>CHF</currency>
+        <decimal>.</decimal>
+        <group>,</group>
+        <length>7</length>
+        <precision>4</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
