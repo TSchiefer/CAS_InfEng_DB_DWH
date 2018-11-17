@@ -860,105 +860,6 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>last_name</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>16</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>first_name</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>email_address</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>job_title</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>25</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>business_phone</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>home_phone</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>mobile_phone</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>fax_number</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>13</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>address</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
         <name>city</name>
         <type>String</type>
         <format />
@@ -981,17 +882,6 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>zip_postal_code</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
         <name>country_region</name>
         <type>String</type>
         <format />
@@ -999,39 +889,6 @@
         <decimal>.</decimal>
         <group>,</group>
         <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>web_page</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>notes</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>attachments</name>
-        <type>Boolean</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
@@ -1140,50 +997,6 @@
         <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
-      <field>
-        <name>status_id</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>date_allocated</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>purchase_order_id</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>inventory_id</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
     </fields>
     <cluster_schema />
     <remotesteps>
@@ -1235,17 +1048,6 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>employee_id</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
         <name>customer_id</name>
         <type>Integer</type>
         <format>#</format>
@@ -1265,182 +1067,6 @@
         <group>,</group>
         <length>-1</length>
         <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>shipped_date</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>19</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>shipper_id</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ship_name</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>22</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ship_address</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ship_city</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>14</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ship_state_province</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>2</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ship_zip_postal_code</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>ship_country_region</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>shipping_fee</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>8</length>
-        <precision>4</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>taxes</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>6</length>
-        <precision>4</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>payment_type</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>11</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>paid_date</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>19</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>notes</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>tax_rate</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>tax_status_id</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>status_id</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
         <trim_type>none</trim_type>
       </field>
     </fields>
@@ -1483,17 +1109,6 @@
     <encoding />
     <fields>
       <field>
-        <name>supplier_ids</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>3</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
         <name>id</name>
         <type>Integer</type>
         <format>#</format>
@@ -1505,17 +1120,6 @@
         <trim_type>none</trim_type>
       </field>
       <field>
-        <name>product_code</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>9</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
         <name>product_name</name>
         <type>String</type>
         <format />
@@ -1523,116 +1127,6 @@
         <decimal>.</decimal>
         <group>,</group>
         <length>40</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>description</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>standard_cost</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>7</length>
-        <precision>4</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>list_price</name>
-        <type>Number</type>
-        <format>#.#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>7</length>
-        <precision>4</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>reorder_level</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>target_level</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>quantity_per_unit</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>20</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>discontinued</name>
-        <type>Integer</type>
-        <format>#</format>
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>15</length>
-        <precision>0</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>minimum_reorder_quantity</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>4</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>category</name>
-        <type>String</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>25</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>attachments</name>
-        <type>Boolean</type>
-        <format />
-        <currency>CHF</currency>
-        <decimal>.</decimal>
-        <group>,</group>
-        <length>-1</length>
         <precision>-1</precision>
         <trim_type>none</trim_type>
       </field>
