@@ -5,7 +5,7 @@ ON f.KUNDE_ID_DIM = k.KUNDE_ID_DIM
 WHERE k.COMPANY = "Company A";
 
 
-SELECT f.GEWINN
+SELECT SUM(f.GEWINN)
 FROM northwind_dwh.verkauf_fact f
 JOIN northwind_dwh.kunde_dim k
 ON f.KUNDE_ID_DIM = k.KUNDE_ID_DIM
