@@ -1,13 +1,18 @@
 library(dplyr)
 products <- read.csv("git/CAS_InfEng_DB_DWH/csv_files/products.csv")
-products <- as.tibble(products)
+products <- as_tibble(products)
+
 indices_duplicates <- duplicated(products$product_name)
+indices_duplicates
+
+dupl_prod_name <- products %>% 
+  filter(indices_duplicates)
 
 all_duplicates <- products %>% 
   semi_join(dupl_prod_name, by = "product_name") %>% 
   arrange(product_name)
 
-all_duplicates
+View(all_duplicates)
 
 boysenberry_spreads <- all_duplicates %>% 
   filter(product_name == "Northwind Traders Boysenberry Spread") %>% 
